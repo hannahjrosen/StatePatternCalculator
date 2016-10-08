@@ -91,8 +91,8 @@ public class CalculatorGUI extends Application {
 					if (equalClear){
 						displayArea.setText("");
 						equalClear = false;
+						displayArea.setText(b.getText());
 						calc.v1 = "";
-						displayArea.setText(s);
 					}
 					currentState.addToNumber(b.getText());
 				} else if (operators.contains(b)){
@@ -127,7 +127,6 @@ public class CalculatorGUI extends Application {
 					equalClear = true;
 					calc.v1 = calc.calculate();
 					calc.v2 = "";
-					System.out.println(currentState);
 				}
 				
 			});
