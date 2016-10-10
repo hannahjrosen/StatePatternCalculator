@@ -44,9 +44,16 @@ public class Calculator {
 	}
 	
 	public String calculate(){
-		double first = Double.parseDouble(v1);
+		double first = 0; 
 		double answer=0;
 
+		if(v1.indexOf("-") > -1){
+			first = Double.parseDouble(v1.substring(0, v1.length()-3));
+			first = first*-1;
+		} else {
+			first = Double.parseDouble(v1);
+		}
+		
 		 if(operator.equals("x^2")){
 				answer = first*first;
 			} else if (operator.equals("sqrt")){
@@ -54,7 +61,15 @@ public class Calculator {
 			} else if (operator.equals("1/x")){
 				answer = 1/first;
 			} else{
-			double second = Double.parseDouble(v2);
+			double second = 0;
+			
+
+			if(v2.indexOf("-") > -1){
+				second = Double.parseDouble(v2.substring(0, v2.length()-3));
+				second = second*-1;
+			} else {
+				second = Double.parseDouble(v2);
+			}
 			
 			if (v2.equals("0") && operator.equals("/")){
 				 return Er.addToNumber(v2);

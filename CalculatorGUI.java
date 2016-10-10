@@ -84,9 +84,20 @@ public class CalculatorGUI extends Application {
 		/*set action*/
 		for(Button b: allButtons){
 			b.setOnAction(e -> {
-				String s = displayArea.getText() + b.getText();
-				displayArea.setText(s);
+				String s = "";
 				
+				if(b.equals(posNeg)){
+					equalClear = false;
+					if(displayArea.getText().indexOf("-") > -1){
+						s= displayArea.getText().substring(1) ;
+					} else {
+						s = "-" + displayArea.getText();
+					}
+					displayArea.setText(s);
+				}else{
+					s = displayArea.getText() + b.getText();
+					displayArea.setText(s);
+				}
 				if (numbers.contains(b)){
 					if (equalClear){
 						displayArea.setText("");
